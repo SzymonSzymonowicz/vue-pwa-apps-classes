@@ -10,9 +10,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#test {
-  color: $secondary;
-  font-size: 200px;
-}
+<style lang="scss" scoped>
+  #test {
+    color: $secondary;
+    font-size: 200px;
+  }
 </style>
