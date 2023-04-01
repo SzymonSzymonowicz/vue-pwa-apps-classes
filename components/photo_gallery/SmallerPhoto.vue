@@ -1,5 +1,6 @@
 <template>
     <div class="smallerPhoto">
+        <!-- on mouse click emit choose-photo event to parent, which reacts changing main photo to the clicked one -->
         <img :src="photoSrc" v-on:click="$emit('choose-photo', photoIndex)"/>
     </div>
 </template>
@@ -14,22 +15,32 @@ export default {
 <style lang="scss" scoped>
     .smallerPhoto {
         display: flex;
+        flex: 1 0 0;
         max-width: 100%;
         max-height: 100%;
-        flex: 1; //?????
-
         margin: 0px 10px;
-
-        &:hover {
-            opacity: 0.5;
-            transition-timing-function: ease;
-            transition-duration: 0.5s;
-            cursor: pointer;
-            background-color: white;
-        }
 
         transition-timing-function: ease;
         transition-duration: 1s;
+
+        &:hover {
+            cursor: pointer;
+            transition-timing-function: ease;
+            transition-duration: 0.5s;
+            background-color: black;
+
+            img{
+                opacity: 0.5;
+            }
+        }
+
+        &.selected{
+            background-color: $fifth;
+            
+            img {
+                opacity: 0.8;
+            }
+        }
     }
 
     img {

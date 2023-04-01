@@ -1,9 +1,12 @@
 <template>
     <div class="gallery">
+        <!-- pass currently chosen main photo src using its index -->
         <MainPhoto :photoSrc="photos[currentMainPhotoIndex]"/>
-        <!-- <MainPhoto :photoSrc="'https://www.si.com/.image/t_share/MTY4MTg2MDIyNzgyODM4MDMz/1988-michael-jordan-001238167_0jpg.jpg'"/> -->
         <div class="image-bar" >
-            <SmallerPhoto v-for="(photo, index) in photos" :key="index" :photoSrc="photo" v-on:choose-photo="selectMainPhoto" :photoIndex="index"/>
+            <!-- for each source create a photo, pass it and its index to the component, add selected css class if its the currently selected one -->
+            <SmallerPhoto v-for="(photo, index) in photos" :key="index" 
+                :photoSrc="photo" v-on:choose-photo="selectMainPhoto" 
+                :photoIndex="index" :class="{selected: currentMainPhotoIndex==index}"/>
         </div>
     </div>
 </template>
@@ -32,7 +35,7 @@ export default {
     },
     methods: {
         selectMainPhoto: function (newIndex) {
-            console.log("small photo passed new index: "+ newIndex)
+            // console.log("small photo passed new index: "+ newIndex)
             this.currentMainPhotoIndex = newIndex;
         }
     }
