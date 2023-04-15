@@ -1,16 +1,35 @@
 <template lang="">
     <div class="modal">
-        <!-- <div class="modal-content"> -->
-            <slot class="modal-content">
-            Something
+        <div class="modal-content" v-click-outside="closeModal">
+            <!-- can't add class to slot since vue 2, won't work -->
+            <slot>
+                Something
             </slot>
-        <!-- </div> -->
+        </div>
     </div>
 </template>
 <script>
-export default {
-    
-}
+    export default {
+        methods: {
+            closeModal: function () {
+                console.log("About to emit")
+                this.$emit('change-modal-state', true);
+
+                // if (this.$el.classList.contains('hidden')) {
+                //     return;
+                // }
+                // console.log("clicked outside");
+                // console.log(this.$el.classList);
+                // this.$el.classList.add('hidden');
+            },
+            // openModal: function () {
+            //     if (this.$el.classList.contains('hidden')) {
+            //         this.$el.classList.remove('hidden');
+            //         return;
+            //     }
+            // }
+        }
+    }
 </script>
 <style lang="scss" scoped>
     .modal {
@@ -28,16 +47,19 @@ export default {
 
         background-color: rgba(0, 0, 0, 0.5);
         // temporary, to delete
-        display: none;
+        // display: none;
     }
     
     .modal-content {
         background: white;
-        width: 100%;
-        max-width: 90vw;
-        height: auto;
         max-height: 90vh;
-
+        width: auto;
+        display: flex;
         overflow: hidden;
+        align-content: center;
+    }
+
+    .hidden {
+        display: none;
     }
 </style>

@@ -14,12 +14,16 @@ export default {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Michroma&display=swap",
       },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined",
+      },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/global_styles.css'
+    '@/assets/css/global_styles.css',
   ],
 
   styleResources: {
@@ -30,6 +34,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/click-outside.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

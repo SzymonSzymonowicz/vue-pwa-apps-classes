@@ -1,7 +1,7 @@
 <template>
     <div>
-        <img class="big-photo" :src="photoSrc" />
-        <Modal>
+        <img class="big-photo" :src="photoSrc" @click="changeModalState" />
+        <Modal v-if="isModalOpened" @change-modal-state="changeModalState">
             <img :src="photoSrc">
         </Modal>
     </div>
@@ -14,7 +14,18 @@ export default {
     props: {
         photoSrc: String,
     },
-    components: { Modal }
+    components: { Modal },
+    data() {
+        return {
+            isModalOpened: false
+        }
+    },
+    methods: {
+        changeModalState: function () {
+            console.log("About to change modal state to: " + !this.isModalOpened)
+            this.isModalOpened = !this.isModalOpened;
+        },
+    }
 }
 </script>
 <style lang="scss" scoped>

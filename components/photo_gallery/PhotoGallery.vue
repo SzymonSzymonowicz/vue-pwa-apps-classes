@@ -1,7 +1,9 @@
 <template>
     <div class="gallery">
         <!-- pass currently chosen main photo src using its index -->
+        <Icon :type='icons.LEFT_ARROW' @click="selectPreviousPhoto"/>
         <MainPhoto :photoSrc="photos[currentMainPhotoIndex]"/>
+        <Icon :type='icons.RIGHT_ARROW' @click='selectNextPhoto'/>
         <div class="image-bar" >
             <!-- for each source create a photo, pass it and its index to the component, add selected css class if its the currently selected one -->
             <SmallerPhoto v-for="(photo, index) in photos" :key="index" 
@@ -13,9 +15,12 @@
 <script>
 import MainPhoto from './MainPhoto.vue';
 import SmallerPhoto from './SmallerPhoto.vue';
+import Icon from '../icon/Icon.vue';
+import IconTypes from '../icon/IconTypes';
+
 
 export default {
-    components: { SmallerPhoto, MainPhoto },
+    components: { SmallerPhoto, MainPhoto, Icon },
     data() {
         return {
             photos: [
@@ -30,13 +35,20 @@ export default {
                 //lebron
                 'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/HBKN5UMTDZGJDL2ZRCBBBUFBEQ.jpg',
             ],
-            currentMainPhotoIndex: 0 
+            currentMainPhotoIndex: 0,
+            icons: IconTypes,
         }
     },
     methods: {
         selectMainPhoto: function (newIndex) {
             // console.log("small photo passed new index: "+ newIndex)
             this.currentMainPhotoIndex = newIndex;
+        },
+        selectNextPhoto: function () {
+            this.currentMainPhotoIndex = (this.currentMainPhotoIndex + 1) % this.photos.length;
+        },
+        selectPreviousPhoto: function () {
+            this.currentMainPhotoIndex = (this.currentMainPhotoIndex - 1 + this.photos.length) % this.photos.length;
         }
     }
 }
