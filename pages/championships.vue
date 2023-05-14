@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Champions</div>
+    <div>Championships</div>
     <NuxtLink to="/">Home</NuxtLink>
   </div>
 </template>

@@ -3,7 +3,7 @@
     <NuxtLink to="/">NBA mag</NuxtLink>
     <NuxtLink to="/hall-of-fame">Hall of fame</NuxtLink>
     <NuxtLink to="/records">Records</NuxtLink>
-    <NuxtLink to="/champions">Championships</NuxtLink>
+    <NuxtLink to="/championships">Championships</NuxtLink>
   </div>
 </template>
 <script>
