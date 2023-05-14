@@ -39,7 +39,7 @@ export default {
   background: white;
   max-height: 90%;
   max-width: 90%;
-  height: auto;
+  height: 90%;
   width: auto;
   display: flex;
   //   overflow: hidden;
