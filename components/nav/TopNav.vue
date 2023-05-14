@@ -1,6 +1,6 @@
 <template>
   <div class="top-nav">
-    <NuxtLink to="/">NBA mag</NuxtLink>
+    <NuxtLink class="logo" to="/">NBA mag</NuxtLink>
     <NuxtLink to="/hall-of-fame">Hall of fame</NuxtLink>
     <NuxtLink to="/records">Records</NuxtLink>
     <NuxtLink to="/championships">Championships</NuxtLink>
@@ -19,13 +19,25 @@ export default {};
   align-items: center;
   justify-content: space-evenly;
 
-  &:first {
-    justify-self: self-start;
-  }
-
   // font-family: 'Michroma', sans-serif;
   font-family: "Michroma", sans-serif;
   font-size: large;
   color: $fifth;
+
+  & .logo {
+    font-size: 32px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
+    &:hover {
+      color: black;
+    }
+  }
 }
 </style>
