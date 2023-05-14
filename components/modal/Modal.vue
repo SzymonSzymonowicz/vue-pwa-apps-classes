@@ -37,10 +37,13 @@ export default {
 
 .modal-content {
   background: white;
-  max-height: 90vh;
+  max-height: 90%;
+  max-width: 90%;
+  height: auto;
   width: auto;
   display: flex;
-  overflow: hidden;
+  //   overflow: hidden;
+  object-fit: cover;
   align-content: center;
 
   &:hover {
